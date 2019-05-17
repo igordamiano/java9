@@ -10,6 +10,7 @@ public class Book {
 	private String author;
 	private List<Category> categories;
 	
+	
 	public Book(String name, String author, Category ...categories) {
 		this.name = name;
 		this.author = author;
