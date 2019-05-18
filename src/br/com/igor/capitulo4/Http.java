@@ -1,9 +1,10 @@
 package br.com.igor.capitulo4;
 
 import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+
+import jdk.incubator.http.HttpClient;
+import jdk.incubator.http.HttpRequest;
+import jdk.incubator.http.HttpResponse;
 
 public class Http {
 
@@ -16,11 +17,7 @@ public class Http {
 
 		HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
 
-		// Não tem mais o método asString()
-		// HttpResponse<String> response1 = httpClient.send(request,
-		// HttpResponse.BodyHandler.asString());
-
-		HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+		HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandler.asString());
 
 		System.out.println("http version: " + response.version());
 		System.out.println("status code: " + response.statusCode());
@@ -35,7 +32,7 @@ public class Http {
 		HttpResponse<String> responses = HttpClient.newHttpClient().send(
 				HttpRequest.newBuilder().uri(new URI("https://turini.github.io/livro-java-9/"))
 				.GET().build()
-				,HttpResponse.BodyHandlers.ofString());
+				,HttpResponse.BodyHandler.asString());
 		
 		
 		

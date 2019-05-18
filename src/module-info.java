@@ -6,5 +6,5 @@
  *
  */
 module java9 {
-	requires java.net.http;
+	requires jdk.incubator.httpclient;
 }

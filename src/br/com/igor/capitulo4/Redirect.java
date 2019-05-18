@@ -1,10 +1,10 @@
 package br.com.igor.capitulo4;
 
 import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpClient.Version;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+
+import jdk.incubator.http.HttpClient;
+import jdk.incubator.http.HttpRequest;
+import jdk.incubator.http.HttpResponse;
 
 public class Redirect {
 
@@ -13,20 +13,20 @@ public class Redirect {
 		String content = HttpClient.newHttpClient()
 				.send(HttpRequest.newBuilder().uri(new URI("https://google.com/"))
 						.GET().build(), 
-						HttpResponse.BodyHandlers.ofString()).body();
+						HttpResponse.BodyHandler.asString()).body();
 		
 		System.out.println(content);
 		System.out.println("--------------------------------------------------------");
 
 		String content1 = HttpClient.newBuilder()
-			.followRedirects(HttpClient.Redirect.NORMAL)
+			.followRedirects(HttpClient.Redirect.SECURE)
 			.version(HttpClient.Version.HTTP_2)
 			.build()
 			.send(HttpRequest.newBuilder()
 					.uri(new URI("https://google.com/"))
 					.GET()
 					.build(), 
-					HttpResponse.BodyHandlers.ofString()).body();
+					HttpResponse.BodyHandler.asString()).body();
 		
 		System.out.println(content1);
 		
