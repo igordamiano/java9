@@ -1,10 +1,9 @@
 package br.com.igor.capitulo4;
 
 import java.net.URI;
-
-import jdk.incubator.http.HttpClient;
-import jdk.incubator.http.HttpRequest;
-import jdk.incubator.http.HttpResponse;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class Http {
 
@@ -17,7 +16,8 @@ public class Http {
 
 		HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
 
-		HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandler.asString());
+		//HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandler.asString());
+		HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
 		System.out.println("http version: " + response.version());
 		System.out.println("status code: " + response.statusCode());
@@ -32,7 +32,8 @@ public class Http {
 		HttpResponse<String> responses = HttpClient.newHttpClient().send(
 				HttpRequest.newBuilder().uri(new URI("https://turini.github.io/livro-java-9/"))
 				.GET().build()
-				,HttpResponse.BodyHandler.asString());
+				,//HttpResponse.BodyHandler.asString());
+				HttpResponse.BodyHandlers.ofString());
 		
 		
 		
