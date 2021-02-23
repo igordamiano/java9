@@ -39,56 +39,56 @@ public class StreamsExercicios {
 					.filter(s -> s != null)
 					.map(s -> s.substring(0,3))
 					.collect(Collectors.toList());
-				
+		System.out.println("* 0 -------------------------------------------------------");		
 		// adicionar um limite em uma coleção. Estes são os métodos skip e limit		
 		
 		// Com o skip , por exemplo, eu posso escrever esse trecho de código para pular os 5 primeiros 
 		// valores desse Stream de inteiros e retornar apenas o restante:
 		IntStream.range(0, 10).skip(5).forEach(System.out::println);
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 1 -------------------------------------------------------");
 		// Já o limit , seu outro método, nos permite adicionar um limite máximo a essa sequência de inteiros
 		IntStream.range(0, 10).limit(3).forEach(System.out::println);
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 2 -------------------------------------------------------");
 		
 		// dropWhile - remover todos os números que sejam menor ou igual a 5
 		IntStream.range(0, 10).dropWhile(e -> e <= 5).forEach(System.out::println);
 		
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 3 -------------------------------------------------------");
 		
 		//É importante perceber que, assim que algum dos elementos retornar false , 
 		// o dropWhile vai parar de remover, por isso imprimiu 3 2 1 que são menores que 5
 		IntStream.of(3,5,6,7,3,2,1).dropWhile(e -> e <= 5).forEach(System.out::println);
 		
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 4 -------------------------------------------------------");
 		// takeWhile - No lugar de remover, ele vai manter os números enquanto a condição for verdadeira
 		IntStream.range(0, 10).takeWhile(e -> e <= 5).forEach(System.out::println);
 		
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 5 -------------------------------------------------------");
 		//remove todas as Strings que antecedem a palavra "no"
 		
 		Stream.of("muitas", "novidades", "no", "java")
 			.dropWhile(s -> !s.equals("no"))
 			.forEach(System.out::println);
 
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 6 -------------------------------------------------------");
 		//takeWhile - mantém todas as strings até chegar na palavra "no"
 		Stream.of("muitas", "novidades", "no", "java")
 			.takeWhile(s -> !s.equals("no"))
 			.forEach(System.out::println);
 		
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 7 -------------------------------------------------------");
 		// Criando loops com iterate
 		
 		// looping da forma antiga
 		for (int i = 0; i <= 10; i = i + 1) {
 			System.out.println(i);
 		}
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 8 -------------------------------------------------------");
 		// com o iterate , faríamos o mesmo
 		Stream.iterate(1, n -> n <=10, n -> n + 1)
 			.forEach(System.out::println);
 		
-		System.out.println("-------------------------------------------------------");
+		System.out.println("* 9 -------------------------------------------------------");
 		Stream.iterate(1, n -> n + 1)
 			.limit(10)
 			.forEach(System.out::println);

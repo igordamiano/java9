@@ -1,5 +1,6 @@
 package br.com.igor.capitulo3;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +44,8 @@ public class CollectionsExercicios {
 		try {
 			names.add("Jorge"); // Vai dar erro, a lista é imutável
 		} catch (Exception e) {
-			//e.printStackTrace();
+			System.out.println("* 0 -------------------------------------------------------");
+			e.printStackTrace();
 		}
 		
 		// sets da forma nova *** Coleções criadas a partir desses métodos são imutáveis
@@ -59,7 +61,8 @@ public class CollectionsExercicios {
 		try {
 			List.of("não", "pode", "ter", null);
 		} catch (Exception e) {
-			//e.printStackTrace();
+			System.out.println("\n* 1 -------------------------------------------------------");
+			e.printStackTrace();
 		}
 		
 		// inserir chaves duplicadas em mapas e conjuntos causará um IllegalArgumentException
@@ -67,6 +70,7 @@ public class CollectionsExercicios {
 			Map.of(1, "a", 1, "b");
 		} catch (Exception e) {
 			// nao pode ter chaves duplicadas
+			System.out.println("\n* 2 -------------------------------------------------------");
 			e.printStackTrace();
 		}
 		
