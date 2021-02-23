@@ -10,7 +10,8 @@ public class Http {
 	public static void main(String[] args) throws Exception {
 
 		//URI uri = new URI("https://github.com/igordamiano/java9/");
-		URI uri = new URI("https://turini.github.io/livro-java-9/");
+		URI uri = new URI("https://turini.github.io/livro-java-9/"); //  HTTP_2
+		//URI uri = new URI("https://www.irdbr.com.br/"); //HTTP_1_1
 
 		HttpClient httpClient = HttpClient.newHttpClient();
 
@@ -19,11 +20,10 @@ public class Http {
 		//HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandler.asString());
 		HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
+		System.out.println("* 0 ----------------------------------------------------");
 		System.out.println("http version: " + response.version());
 		System.out.println("status code: " + response.statusCode());
 		System.out.println("content: " + response.body());
-		
-		System.out.println("----------------------------------------------------");
 		
 		// encadeado 
 		// Com essa nova possibilidade, conseguimos fazer requisições HTTP de forma nativa e bastante eficiente, 
@@ -35,12 +35,8 @@ public class Http {
 				,//HttpResponse.BodyHandler.asString());
 				HttpResponse.BodyHandlers.ofString());
 		
-		
-		
-		
-		
-		
-		
+		System.out.println("* 1 ----------------------------------------------------");
+		System.out.println(responses);
 		
 	}
 }

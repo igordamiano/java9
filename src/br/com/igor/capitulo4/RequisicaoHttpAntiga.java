@@ -12,7 +12,7 @@ public class RequisicaoHttpAntiga {
 	public static void main(String[] args) throws IOException {
 
 		
-		URL url = new URL("https://www.casadocodigo.com.br/");
+		URL url = new URL("https://www.irdbr.com.br/");
 		
 		URLConnection urlConnection = url.openConnection();
 		

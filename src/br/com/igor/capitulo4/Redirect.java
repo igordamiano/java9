@@ -15,8 +15,8 @@ public class Redirect {
 						//HttpResponse.BodyHandler.asString()).body();
 						HttpResponse.BodyHandlers.ofString()).body();
 		
+		System.out.println("* 0 --------------------------------------------------------");
 		System.out.println(content);
-		System.out.println("--------------------------------------------------------");
 
 		String content1 = HttpClient.newBuilder()
 			//.followRedirects(HttpClient.Redirect.SECURE)
@@ -29,15 +29,8 @@ public class Redirect {
 					.build(), 
 					//HttpResponse.BodyHandler.asString()).body();
 					HttpResponse.BodyHandlers.ofString()).body();
-		
+		System.out.println("* 1 --------------------------------------------------------");
 		System.out.println(content1);
-		
-		
-
-
-		
-		
-		
 		
 		
 	}

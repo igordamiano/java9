@@ -10,6 +10,7 @@ public class AsyncRequest {
 
 	public static void main(String[] args) throws Exception {
 
+		
 		CompletableFuture<HttpResponse<String>> response =
 				HttpClient.newHttpClient()
 				.sendAsync(HttpRequest.newBuilder()
@@ -25,7 +26,7 @@ public class AsyncRequest {
 			System.out.println(response.get().body());
 		} else {
 			System.out.println("Cancelando o request");
-			//response.cancel(true);
+			response.cancel(true);
 		}
 		
 		//

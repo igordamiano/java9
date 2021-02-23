@@ -21,7 +21,8 @@ public class Books {
 						.GET().build()
 						, HttpResponse.BodyHandlers.ofString()).body();
 		
-		//System.out.println(csv);
+		System.out.println("* 0 --------------------------------------------------------");
+		System.out.println(csv);
 		
 		List<Book> listCsv = Stream.of(csv.split("\n"))
 			.map(Books::create)
@@ -31,6 +32,7 @@ public class Books {
 		
 		//Books.all().forEach(System.out::println);
 		// Imprimir o nome de cada livro
+		System.out.println("* 1 --------------------------------------------------------");
 		Books.all().stream().map(Book::getName).forEach(System.out::println);
 		
 		
